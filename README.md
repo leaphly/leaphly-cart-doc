@@ -1,4 +1,4 @@
-# Leaphly cart Documentation
+# Leaphly Cart Documentation
 
 This is the document of the [leaphlyCart (CART)](http://leaphly.org/) and is licensed under the Creative Commons [Attribution-Share Alike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).
 

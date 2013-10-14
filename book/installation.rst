@@ -32,7 +32,7 @@ Add LeaphlyCartBundle in your composer.json:
 
     {
         "require": {
-            "laaphly/cart-bundle": "~2.0@dev"
+            "leaphly/cart-bundle": "~1.0@dev"
         }
     }
 
@@ -71,7 +71,7 @@ Step 3: Create your Cart and Item classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The goal of this bundle is to persist some `Cart` class to a database (MySql,
-MongoDB, CouchDB, etc). Your first job, then, is to create the `Cart` class
+MongoDB). Your first job, then, is to create the `Cart` class
 for your application. This class can look and act however you want: add any
 properties or methods you find useful. This is *your* `Cart` class.
 
@@ -227,38 +227,6 @@ and look like this to start:
         }
     }
 
-c) CouchDB Cart class
-^^^^^^^^^^^^^^^^^^^^^
-
-If you're persisting your carts via the Doctrine CouchDB ODM, then your
-``Cart`` class should live in the ``CouchDocument`` namespace of your
-bundle and look like this to start:
-
-.. code-block:: php
-
-    <?php
-    // src/Acme/CartBundle/Document/Cart.php
-
-    namespace Acme\CartBundle\CouchDocument;
-
-    use Leaphly\CartBundle\Model\Cart as BaseCart;
-    use Doctrine\ODM\CouchDB\Mapping\Annotations as CouchDB;
-
-    /**
-     * @CouchDB\Document
-     */
-    class Cart extends BaseCart
-    {
-        /** @Field(type="string") */
-        protected $promocode;
-
-        public function __construct()
-        {
-            parent::__construct();
-            // your own logic
-        }
-    }
-
 Step 4: Configure the LeaphlyCartBundle
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -272,7 +240,7 @@ which type of datastore you are using.
 
     # app/config/config.yml
     leaphly_cart:
-        db_driver: orm # other valid values are 'mongodb', 'couchdb'
+        db_driver: orm # other valid values are 'mongodb'
         cart_class: Acme\CartBundle\Entity\Cart
         item_class: Acme\CartBundle\Entity\Item
         service:
@@ -302,7 +270,7 @@ Or if you prefer XML:
 
 As you can see, you will need the following information:
 
--  The type of datastore you are using (``orm``, ``mongodb`` or ``couchdb``).
+-  The type of datastore you are using (``orm``, ``mongodb``).
 -  The fully qualified class name (FQCN) of the ``Cart`` class which you
    created in Step 3b.
 -  The product family provider service name (for more information on the
@@ -336,7 +304,7 @@ As you can see, you will need the following information:
     .. code-block:: yaml
 ..
     # app/config/routing.yml
-    leaphly_cart_security:
+    leaphly_cart_routing:
         resource: "@LeaphlyCartBundle/Resources/config/routing.xml"
 ..
 .. Or if you prefer XML:
