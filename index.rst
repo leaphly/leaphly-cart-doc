@@ -67,6 +67,7 @@ Big Picture
 .. toctree::
     :maxdepth: 1
 
+    bigpicture/index
     bigpicture/flow
     bigpicture/strategy
     bigpicture/transition
@@ -100,6 +101,10 @@ How to configure your e-commerce
 
 Cookbook
 --------
+.. toctree::
+    :maxdepth: 1
+
+    cookbook/index
 
 Special solutions for specific use cases that go beyond standard usage.
 

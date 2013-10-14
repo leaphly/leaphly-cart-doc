@@ -22,21 +22,23 @@ create virtual host
 
 sudo -- sh -c "echo 127.0.0.1 cart.local  >> /etc/hosts"
 
-<VirtualHost *:80>
-     DocumentRoot /var/www/cartSandbox/web/
-     ServerName cart.local
-     <Directory  /var/www/cartSandbox/web/>
-           Options FollowSymLinks
-           AllowOverride All
-           Allow from all
-     <IfModule mod_rewrite.c>
-       RewriteEngine On
-       RewriteCond %{REQUEST_FILENAME} -f
-       RewriteRule .? - [L]
-       RewriteRule .? %{ENV:BASE}/app_mongo.php [L]
-    </IfModule>
-    </Directory>
-</VirtualHost>
+.. code-block:: bash
+
+    <VirtualHost *:80>
+         DocumentRoot /var/www/cartSandbox/web/
+         ServerName cart.local
+         <Directory  /var/www/cartSandbox/web/>
+               Options FollowSymLinks
+               AllowOverride All
+               Allow from all
+         <IfModule mod_rewrite.c>
+           RewriteEngine On
+           RewriteCond %{REQUEST_FILENAME} -f
+           RewriteRule .? - [L]
+           RewriteRule .? %{ENV:BASE}/app_mongo.php [L]
+        </IfModule>
+        </Directory>
+    </VirtualHost>
 
 
 
