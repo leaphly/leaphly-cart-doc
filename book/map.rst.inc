@@ -1,0 +1,2 @@
+* :doc:`installation`
+* :doc:`sandbox`
