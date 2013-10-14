@@ -59,22 +59,6 @@ There are basically four main target audiences:
 Be it sophisticated Cart features like multi-product, rest provider, api for cart finite state, ???
  etc. or just a single product like a mug shop.
 
-
-Big Picture
-------------
-
-
-.. toctree::
-    :maxdepth: 1
-
-    bigpicture/index
-    bigpicture/flow
-    bigpicture/strategy
-    bigpicture/transition
-    bigpicture/roles
-    bigpicture/familyproduct
-    bigpicture/price
-
 Book
 ----
 
