@@ -75,3 +75,26 @@ Or if you prefer XML:
 
     <import id="leaphly_cart_item_limited_routing" type="rest" resource="leaphly_cart.cart_item.limited.controller" name-prefix="api_1_" />
     <import id="leaphly_cart_item_full_routing" type="rest" resource="leaphly_cart.cart_item.full.controller" name-prefix="api_1_" />
+
+Cart Transition routing
+=======================
+
+If you want expose the REST Api for cart state's transitions add the following routing entry to the routing configuration:
+
+In YAML:
+
+.. code-block:: yaml
+
+    leaphly_cart_transition:
+        type: rest
+        parent: leaphly_cart_full_routing
+        resource: Leaphly\CartBundle\Controller\CartTransitionsController
+        name-prefix: "api_1_"
+
+Or if you prefer XML:
+
+.. code-block:: xml
+
+    <import id="cartTransitions" type="rest" resource="Leaphly\CartBundle\Controller\CartTransitionsController" name-prefix="api_1_" parent="leaphly_cart_full_routing" />
+
+
