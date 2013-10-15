@@ -316,7 +316,7 @@ As you can see, you will need the following information:
 -  The security roles: When you sign in to the cart by leaphly's APIs you will have the
    opportunity to do so with different levels of authorization, so you can be sure that
    functional changes such as, for example, the extension of the expiration time, or set
-   the cart state". To do this you just need to provide the form class and the
+   the cart state. To do this you just need to provide the form class and the
    corresponding strategy; you will deepen this issue here.
 -  Each role need a form ( as a service ) that map only the authorized field.
    Example: the full role will map all Cart fields but the limited role map all field
