@@ -93,7 +93,7 @@ called ``AcmeCartBundle`` and place your ``Cart`` class in it.
 
 In the following sections, you'll see examples of how your ``Cart``
 class should look, depending on how you're storing your carts (Doctrine
-ORM, MongoDB ODM, or CouchDB ODM).
+ORM, MongoDB ODM).
 
 **Note:**
 
@@ -107,8 +107,8 @@ ORM, MongoDB ODM, or CouchDB ODM).
     to call **parent::\ construct()**, as the base Cart class depends on
     this to initialize some fields.
 
-a) Doctrine ORM Cart class
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+a) Doctrine ORM Cart and Item classes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you're persisting your carts via the Doctrine ORM, then your ``Cart``
 class should live in the ``Entity`` namespace of your bundle and look
@@ -193,6 +193,37 @@ and the orm.yml:
                 type: string
                 length: 50
 
+For Item Class follow this flow:
+
+-  Extends the abstract ```Leaphly\CartBundle\Model\Item``` class
+
+-  Define your domain-specific items with ORM\Inheritance directive
+
+.. code-block:: php
+
+     /**
+     *
+     * Acme\CartBundle\Entity
+     *
+     * @ORM\Table(name="cart_item")
+     * @ORM\Entity()
+     * @ORM\InheritanceType("JOINED")
+     * @ORM\DiscriminatorColumn(name="discr", type="string")
+     * @ORM\DiscriminatorMap({
+     *      "ticket"  = "Acme\Product\ConferenceBundle\Entity\TicketItem",
+     *      "tShirt"  = "Acme\Product\TshirtBundle\Entity\TshirtItem"
+     * })
+     *
+     * @ORM\HasLifecycleCallbacks()
+     */
+    abstract class BaseItem extends BaseItem
+    {
+        ...
+    }
+
+Every specific item class will extends your abstract BaseItem and this is the place
+where put all your domain stuff.
+
 b) MongoDB Cart and Item classes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -227,6 +258,14 @@ and look like this to start:
         }
     }
 
+Now say to the doctrine-odm to embed the documents inside the items property
+
+.. code-block:: yaml
+
+    Acme\CartBundle\Document\Cart
+        embedMany:
+            items: ~
+
 Step 4: Configure the LeaphlyCartBundle
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -247,11 +286,9 @@ which type of datastore you are using.
             product_family_provider: acme_cart.product_family_provider
         roles:
             full:
-                form: leaphly_cart.cart.admin.form.factory
-                strategy: godfather.full
+                form: leaphly_cart.cart.admin.form
             limited:
-                form: leaphly_cart.cart.admin.form.factory
-                strategy: godfather.limited
+                form: leaphly_cart.cart.admin.form
 
 Or if you prefer XML:
 
@@ -279,8 +316,11 @@ As you can see, you will need the following information:
 -  The security roles: When you sign in to the cart by leaphly's APIs you will have the
    opportunity to do so with different levels of authorization, so you can be sure that
    functional changes such as, for example, the extension of the expiration time, or set
-   the cart as "paid". To do this you just need to provide the form class and the
+   the cart state. To do this you just need to provide the form class and the
    corresponding strategy; you will deepen this issue here.
+-  Each role need a form ( as a service ) that map only the authorized field.
+   Example: the full role will map all Cart fields but the limited role map all field
+   except the price and state properties.
 
 **Note:**
 
@@ -289,32 +329,20 @@ As you can see, you will need the following information:
     configured it to use. (Unless specified explicitly, this is the
     default manager of your doctrine configuration.)
 
-..
- Step 5: Import LeaphlyCartBundle routing files
- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 5: (Only for REST functionality) Import LeaphlyCartBundle routing files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. Now that you have activated and configured the bundle, all that is left
-.. to do is import the LeaphlyCartBundle routing files.
+Now that you have activated and configured the bundle, all that is left
+to do is import the LeaphlyCartBundle routing files.
 
-.. By importing the routing files you will have ready made pages for things
-.. such as logging in, creating carts, etc.
+You could expose different roles with different REST endpoints so for each
+role you want expose define a routing entry and point it to the relative controller.
+The LeaphlyCartBundle will create a dedicated-role controllers (as a service) with a
+naming convention.
 
-.. In YAML:
-..
-    .. code-block:: yaml
-..
-    # app/config/routing.yml
-    leaphly_cart_routing:
-        resource: "@LeaphlyCartBundle/Resources/config/routing.xml"
-..
-.. Or if you prefer XML:
-..
- .. code-block:: xml
-..
-    <!-- app/config/routing.xml -->
-    <import resource="@LeaphlyCartBundle/Resources/config/routing.xml"/>
+For more details see the reference/configuration/routing section
 
-Step 5: Update your database schema
+Step 6: Update your database schema
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now that the bundle is configured, the last thing you need to do is
@@ -332,7 +360,6 @@ indexes.
 .. code-block:: bash
 
     $ php app/console doctrine:mongodb:schema:create --index
-
 
 Next Steps
 ~~~~~~~~~~

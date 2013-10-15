@@ -13,7 +13,6 @@ Mission Statement
     This software provides the tools and guidelines for building decoupled,
     high-quality and long-life e-commerce applications.
 
-
 Why another Ecommerce?
 ----------------------
 
