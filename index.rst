@@ -1,8 +1,8 @@
 Leaphly Documentation
 =========================
 
-This documentation is currently in development and far from complete. See `Documentation planning`_
-for an overview of the work left to do. Want to help? Thank you, all help greatly appreciated!
+This documentation is currently in development and far from complete.
+Want to help? Thank you, all help greatly appreciated!
 The source of the `documentation is hosted on github`_.
 
 Mission Statement
@@ -43,20 +43,16 @@ You may install the cart as a simple bundle for use by service container, or use
 What is our target audience?
 ----------------------------
 
-There are basically four main target audiences:
+There are basically few main target audiences:
 
 #. Developers who have built an existing custom application with Symfony2 and need a fast
    way to add support for cart. 
 
-#. Developers that need to build a highly customized cart
-   solution that no out-of-the-box cart ecommerce properly provide through customization alone.
+#. Developers that during the creation of their ecommerce think that a structure SOA, is perfect for them.
 
-#. Developers che durante la creazione del loro ecommerce pensano che una struttura SOA, sia perfetta per loro
+#. Developers who already have an ecommerce and would like to replace only the management of the shopping cart.
 
-#. Developers che hanno già un ecommerce e vorrebbero sostituire solo la gestione del carrello e del prodotto.
-
-Be it sophisticated Cart features like multi-product, rest provider, api for cart finite state, ???
- etc. or just a single product like a mug shop.
+Be it sophisticated Cart features like multi-product, rest provider, api for cart finite state, or just a single product like a mug shop.
 
 Book
 ----
@@ -110,10 +106,7 @@ Dreaming
 - All the php e-commerces platform would share the same interfaces
 - Melting of Leaphly with Vespolina and Sylius.
 
-
-.. _`decoupled CMS`: http://decoupledcms.org
 .. _`Symfony2`: http://symfony.com
-.. _`about`: http://leaphly.org.com/about
-.. _`Documentation planning`: https://github.com/symfony-cart/symfony-cart/wiki/Documentation-Planning
-.. _`Symfony Content Management Framework`: http://leaphly.org.com
-.. _`documentation is hosted on github`: https://github.com/symfony-cart/symfony-cart-docs
+.. _`about`: http://leaphly.org.com
+.. _`Leaphly Cart`: http://leaphly.org.com
+.. _`documentation is hosted on github`: https://github.com/leaphly/leaphly-cart-doc
