@@ -17,14 +17,11 @@ From zero to cart in five moves!
 1. Download LeaphlyCartBundle using composer
 2. Enable the Bundle
 3. Create your ``Cart`` and ``Item`` classes
-4. Create your ``Product`` Classes
-
-.. 5. Configure the LeaphlyCartBundle
-
+4. Configure the LeaphlyCartBundle
 5. Update your database schema
 
-Step 1: Download LeaphlyCartBundle using composer
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 1: Download Leaphly Cart Bundle using composer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Add LeaphlyCartBundle in your composer.json:
 
@@ -170,9 +167,6 @@ and the orm.yml:
      */
     class Cart extends BaseCart
     {
-        /**
-         * @ORM\Column(type="string", length="50")
-         */
         protected $promocode;
 
         public function __construct()
@@ -281,29 +275,9 @@ which type of datastore you are using.
     leaphly_cart:
         db_driver: orm # other valid values are 'mongodb'
         cart_class: Acme\CartBundle\Entity\Cart
-        item_class: Acme\CartBundle\Entity\Item
-        service:
-            product_family_provider: acme_cart.product_family_provider
         roles:
             full:
                 form: leaphly_cart.cart.admin.form
-            limited:
-                form: leaphly_cart.cart.admin.form
-
-Or if you prefer XML:
-
-.. code-block:: xml
-
-    <!-- app/config/config.xml -->
-
-    <!-- other valid 'db-driver' values are 'mongodb' and 'couchdb' -->
-    <leaphly_cart:config db-driver="orm" cart-class="Acme\CartBundle\Entity\Cart" item-class="Acme\CartBundle\Entity\Item">
-        <service product-family-provider="acme_cart.product_family_provider" />
-        <roles>
-            <role name="full" form="leaphly_cart.cart.admin.form.factory" strategy="godfather.full" />
-            <role name="limited" form="leaphly_cart.cart.admin.form.factory" strategy="godfather.limited" />
-        </ roles>
-    </ leaphly_cart:config>
 
 As you can see, you will need the following information:
 
@@ -340,7 +314,9 @@ role you want expose define a routing entry and point it to the relative control
 The LeaphlyCartBundle will create a dedicated-role controllers (as a service) with a
 naming convention.
 
-For more details see the reference/configuration/routing section
+@TODO complete this part.
+
+
 
 Step 6: Update your database schema
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
