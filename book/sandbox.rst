@@ -1,33 +1,31 @@
 .. index::
     single: sandbox
 
-Using Sandbox
-=============
+Getting started with the Sandbox and MongoODM
+=============================================
 
-cd /var/www
-
-git create-project -sdev ....
-
-cd cartSandbox
-
-app/console doctrine:mongodb:fixtures:load --env=mongo
-
-app/console fos:js:dump --env=mongo
-
-app/console assets:install web --symlink --env=mongo
-
-app/console assetic:dump --env=mongo
-
-create virtual host
-
-sudo -- sh -c "echo 127.0.0.1 cart.local  >> /etc/hosts"
+The easy way to start with leaphly is probably the sandbox, with MongoODM
 
 .. code-block:: bash
 
+    cd /var/www
+    php composer.phar -sdev create-project leaphly/leaphly-sandbox leaphly-sandbox/
+    cd leaphly-sandbox
+    app/console doctrine:mongodb:fixtures:load --env=mongo
+    app/console fos:js:dump --env=mongo
+    app/console assets:install web --symlink --env=mongo
+    app/console assetic:dump --env=mongo
+
+Then create  the virtual host
+
+sudo -- sh -c "echo 127.0.0.1 cart.local  >> /etc/hosts"
+
+.. code-block:: apache
+
     <VirtualHost *:80>
-         DocumentRoot /var/www/cartSandbox/web/
+         DocumentRoot /var/www/leaphly-sandbox/web/
          ServerName cart.local
-         <Directory  /var/www/cartSandbox/web/>
+         <Directory  /var/www/leaphly-sandbox/web/>
                Options FollowSymLinks
                AllowOverride All
                Allow from all
@@ -41,11 +39,7 @@ sudo -- sh -c "echo 127.0.0.1 cart.local  >> /etc/hosts"
     </VirtualHost>
 
 
-
 Summary
 -------
 
-Congratulations! You are now able to create a simple web site using the
-Leaphly cart. From here, each chapter will tell you a bit more about the CART
-and more about the things behind the SimpleCMSBundle. In the end, you'll be
-able to create more advanced blog systems and other CMS websites.
+Congratulations! The leaphly project is waiting you at `http://cart.local`.

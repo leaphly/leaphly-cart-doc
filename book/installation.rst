@@ -104,89 +104,39 @@ ORM, MongoDB ODM).
     to call **parent::\ construct()**, as the base Cart class depends on
     this to initialize some fields.
 
-a) Doctrine ORM Cart and Item classes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Doctrine ORM
+____________
+
+Doctrine ORM Cart
+^^^^^^^^^^^^^^^^^
 
 If you're persisting your carts via the Doctrine ORM, then your ``Cart``
 class should live in the ``Entity`` namespace of your bundle and look
 like this to start:
 
-Annotations
-'''''''''''
+https://github.com/leaphly/leaphly-sandbox/blob/master/src/Acme/CartBundle/Entity/Cart.php
 
-.. code-block:: php
+Doctrine ORM ITEMS
+^^^^^^^^^^^^^^^^^^
 
-    <?php
-    // src/Acme/CartBundle/Entity/Cart.php
+In Doctrine ORM you need an Item Entity. But in a real world you need the same number of items type
+depending on the number of the product you want to sell.
 
-    namespace Acme\CartBundle\Entity;
+If you have multiple products you need to create multiple items entity so you may need the doctrine inheritance.
 
-    use Leaphly\CartBundle\Model\Cart as BaseCart;
-    use Doctrine\ORM\Mapping as ORM;
+You could find an example of class here:
 
-    /**
-     * @ORM\Entity
-     * @ORM\Table(name="leaphly_cart")
-     */
-    class Cart extends BaseCart
-    {
-        /**
-         * @ORM\Column(type="string")
-         */
-        protected $promocode;
+https://github.com/leaphly/leaphly-sandbox/blob/master/src/Acme/CartBundle/Entity/Item.php
 
-        public function __construct()
-        {
-            parent::__construct();
-            // your own logic
-        }
-    }
+and then the different items:
 
-**Note:**
+https://github.com/leaphly/leaphly-sandbox/blob/master/src/Acme/Product/ConferenceBundle/Entity/TicketItem.php
 
-    ``Cart`` is a reserved keyword in SQL so you cannot use it as table
-    name.
+and
 
-yaml
-''''
+https://github.com/leaphly/leaphly-sandbox/blob/master/src/Acme/Product/TshirtBundle/Entity/TshirtItem.php
 
-If you use yml to configure Doctrine you must add two files. The Entity
-and the orm.yml:
-
-.. code-block:: php
-
-    <?php
-    // src/Acme/CartBundle/Entity/Cart.php
-
-    namespace Acme\CartBundle\Entity;
-
-    use Leaphly\CartBundle\Model\Cart as BaseCart;
-
-    /**
-     * Cart
-     */
-    class Cart extends BaseCart
-    {
-        protected $promocode;
-
-        public function __construct()
-        {
-            parent::__construct();
-            // your own logic
-        }
-    }
-
-.. code-block:: yaml
-
-    # src/Acme/CartBundle/Resources/config/doctrine/Cart.orm.yml
-    Acme\CartBundle\Entity\Cart:
-        type:  entity
-        table: leaphly_cart
-        fields:
-            promocode:
-                type: string
-                length: 50
-
+Be careful to compile the doctrine inheritance proprely, the type JOINED or SINGLE depends of your domain.
 For Item Class follow this flow:
 
 -  Extends the abstract ```Leaphly\CartBundle\Model\Item``` class
@@ -218,47 +168,29 @@ For Item Class follow this flow:
 Every specific item class will extends your abstract BaseItem and this is the place
 where put all your domain stuff.
 
-b) MongoDB Cart and Item classes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Doctrine MongoDB ODM
+____________________
+
+MongoDB Cart
+^^^^^^^^^^^^
 
 If you're persisting your carts via the Doctrine MongoDB ODM, then your
-``Cart`` class should live in the ``Document`` namespace of your bundle
-and look like this to start:
+``Cart`` class should live in the ``Document`` namespace of your bundle.
 
-.. code-block:: php
+You could find an example of class here:
 
-    <?php
-    // src/Acme/CartBundle/Document/Cart.php
+https://github.com/leaphly/leaphly-sandbox/blob/master/src/Acme/CartBundle/Model/Cart.php
 
-    namespace Acme\CartBundle\Document;
+If you have multiple products you need to create multiple items entity so you may need the doctrine inheritance.
 
-    use Leaphly\CartBundle\Model\Cart as BaseCart;
-    use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+With Mongo ODM you don't need to create the central 'Item' class, below an example on how to create the different items:
 
-    /**
-     * @MongoDB\Document
-     */
-    class Cart extends BaseCart
-    {
-        /**
-         * @MongoDB\Column(type="string")
-         */
-        protected $promocode;
+https://github.com/leaphly/leaphly-sandbox/blob/master/src/Acme/Product/ConferenceBundle/Document/TicketItem.php
 
-        public function __construct()
-        {
-            parent::__construct();
-            // your own logic
-        }
-    }
+and
 
-Now say to the doctrine-odm to embed the documents inside the items property
+https://github.com/leaphly/leaphly-sandbox/blob/master/src/Acme/Product/TshirtBundle/Document/TshirtItem.php
 
-.. code-block:: yaml
-
-    Acme\CartBundle\Document\Cart
-        embedMany:
-            items: ~
 
 Step 4: Configure the LeaphlyCartBundle
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -273,28 +205,21 @@ which type of datastore you are using.
 
     # app/config/config.yml
     leaphly_cart:
-        db_driver: orm # other valid values are 'mongodb'
-        cart_class: Acme\CartBundle\Entity\Cart
+        db_driver: orm # or odm, required
+        cart_class: Acme\CartBundle\Entity\Cart #required
         roles:
             full:
-                form: leaphly_cart.cart.admin.form
+                form: leaphly_cart.cart.admin.form # required
 
 As you can see, you will need the following information:
 
--  The type of datastore you are using (``orm``, ``mongodb``).
--  The fully qualified class name (FQCN) of the ``Cart`` class which you
-   created in Step 3b.
--  The product family provider service name (for more information on the
-   family provider can go in the section devoted to it, for now we can only
-   say that the service need to understand how to manipulate different types of products)
--  The security roles: When you sign in to the cart by leaphly's APIs you will have the
-   opportunity to do so with different levels of authorization, so you can be sure that
-   functional changes such as, for example, the extension of the expiration time, or set
-   the cart state. To do this you just need to provide the form class and the
-   corresponding strategy; you will deepen this issue here.
--  Each role need a form ( as a service ) that map only the authorized field.
+-  The type of driver you are using (``orm``, ``mongodb``).
+-  The fully qualified class name (FQCN) of the ``Cart`` class you created in Step 3.
+-  The access roles:
+   each role need a form (as a service) that maps only the authorized field.
    Example: the full role will map all Cart fields but the limited role map all field
    except the price and state properties.
+   Via Service container you could use the handler via  `leaphly_cart.cart.full.handler`.
 
 **Note:**
 
@@ -303,6 +228,12 @@ As you can see, you will need the following information:
     configured it to use. (Unless specified explicitly, this is the
     default manager of your doctrine configuration.)
 
+**Note:**
+    LeaphlyCartBundle uses a compiler pass to register controllers and handlers, so
+    if you want to know which services has been creating in the black box just run
+    `app/console container:debug | grep leaphly`
+
+
 Step 5: (Only for REST functionality) Import LeaphlyCartBundle routing files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -310,13 +241,36 @@ Now that you have activated and configured the bundle, all that is left
 to do is import the LeaphlyCartBundle routing files.
 
 You could expose different roles with different REST endpoints so for each
-role you want expose define a routing entry and point it to the relative controller.
+role you want expose, you should define a routing entry and point it to the relative controller.
 The LeaphlyCartBundle will create a dedicated-role controllers (as a service) with a
 naming convention.
 
-@TODO complete this part.
+If you define a role called full, the controllers will be defined:
 
+- `leaphly_cart.cart.full.controller`
+- `leaphly_cart.cart_item.full.controller`
 
+add to the project the route `app/config/routing.yml`
+
+.. code-block:: yaml
+
+    leaphly_cart:
+        type: rest
+        resource: "@AcmeCartBundle/Resources/config/rest.xml"
+        prefix:   /api/v1/
+
+then create the `rest.xml` in your cart bundle "@AcmeCartBundle/Resources/config/rest.xml".
+
+.. code-block:: xml
+
+    <import id="carts_full" type="rest" resource="leaphly_cart.cart.full.controller" name-prefix="api_1_full_" prefix="/full" />
+    <import id="cartItems_full" type="rest" resource="leaphly_cart.cart_item.full.controller" name-prefix="api_1_full_" parent="carts_full" prefix="/full" />
+
+If you want to enable transition, and the finite state machine to the cart, you should add also this route:
+
+.. code-block:: xml
+
+    <import id="cartTransitions" type="rest" resource="Leaphly\CartBundle\Controller\CartTransitionsController" name-prefix="api_1_" parent="carts" />
 
 Step 6: Update your database schema
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

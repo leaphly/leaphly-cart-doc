@@ -36,7 +36,7 @@ In this example you need to define an ItemHandler for each Item family
 
     class ItemHandler implements ItemHandlerInterface
     {
-        public function createItem(CartInterface $cart, array $parameters)
+        public function postItem(CartInterface $cart, array $parameters)
         {
             if($form->isValid()){
                 /**
@@ -49,14 +49,26 @@ In this example you need to define an ItemHandler for each Item family
         }
     }
 
-Now you need only the `godgather's <https://github.com/PUGX/godfather>`__ tag that register the handler for strategy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You could see a working example at:
+
+https://github.com/leaphly/leaphly-sandbox/blob/master/src/Acme/Product/ConferenceBundle/Handler/ItemHandlerFullAccess.php
+
+
+Now you need only the `godfather's <https://github.com/PUGX/godfather>`__ tag that registers the handler for the strategy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Create the service and add the godfather tag in your `/Resource/config/mongodb.xml`
 
 .. code:: xml
 
             <service id="conference.item.handler" class="%conference.item_handler.class%">
                 <argument>%conference.item.class%</argument>
                 <argument type="service" id="form.factory"/>
-                <tag name="godfather.strategy" instance='api' context_name="item_handler" context_key="ConferenceProduct" />
+                <tag name="godfather.strategy" instance='full' context_name="item_handler" context_key="ConferenceProduct" />
             </service>
+
+You could see a working example at:
+
+https://github.com/leaphly/leaphly-sandbox/blob/master/src/Acme/Product/ConferenceBundle/Resources/config/mongodb.xml
 
