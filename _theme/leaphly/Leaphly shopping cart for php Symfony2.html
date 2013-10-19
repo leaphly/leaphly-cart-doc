@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Leaphly shopping cart for php Symfony2</title>
+    <link rel="shortcut icon" href="http://www.leaphly.org/images/e7c6908.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" href="http://www.leaphly.org/images/e67d23b.png">
+        <link rel="apple-touch-icon" href="http://www.leaphly.org/images/443e46a.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="http://www.leaphly.org/images/28b677a.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="http://www.leaphly.org/images/49303e2.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="http://www.leaphly.org/images/e0a4771.png">
+        <link rel="apple-touch-icon" sizes="57x57" href="http://www.leaphly.org/images/ccde04b.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="http://www.leaphly.org/images/49659a7.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="http://www.leaphly.org/images/709734a.png">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" href="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/f07298b.css" media="screen" type="text/css">
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/analytics.js" async=""></script>
+    <script src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/embed.js" async="" type="text/javascript"></script></head>
+<body data-twttr-rendered="true">
+
+<div id="sidebar" role="complementary" class="bs-sidebar affix affix-top well">
+    <div class="centered">
+        <img src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/e9da8a3.png" alt="leaphly symfony2 cart">
+            </div>
+    <ul class="nav bs-sidenav">
+        <li><a href="#mission-statement">Mission Statement</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#shopping-cart-on-the-shoulder-of-the-giants">Shopping cart</a></li>
+        <li><a href="#demo">Demo</a></li>
+        <li><a href="#why-leaphly-cart">Why Leaphly?</a></li>
+        <li><a href="#give-a-feedback">Feedback</a></li>
+    </ul>
+    <div class="centered"><iframe style="width: 112px; height: 20px;" data-twttr-rendered="true" title="Twitter Follow Button" class="twitter-follow-button twitter-follow-button" src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/follow_button.html" allowtransparency="true" id="twitter-widget-1" scrolling="no" frameborder="0"></iframe>
+        <script src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/widgets.js" id="twitter-wjs"></script><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
+</div>
+
+<div class="container">
+    <div class="demo-headline">
+        <h1 class="demo-logo"><a href="http://www.leaphly.org/" title="leaphly-cart">
+            <div class="logo"></div>
+            Leaphly  cart</a>
+            <small>Shopping cart built around RESTful specs.</small>
+            <small>Shopping cart thought for developers.</small>
+            <small>Shopping cart as a service.</small>
+        </h1>
+    </div><!-- /header -->
+</div><!-- /container -->
+
+
+    <div class="container">
+        <div class="demo-row typography-row row" id="mission-statement">
+            <h2 class="demo-panel-title">Mission Statement
+                <a title="Permalink to this headline" href="#mission-statement" class="headerlink">¶</a>
+            </h2>
+            <div class="col-md-12">
+                <p>
+                    The Leaphly project makes it easier for developers to add cart functionality
+                    to the Symfony2 applications
+                    or to those applications that could consume REST API.
+                </p>
+                <p>
+                    This software provides the tools and guidelines for building decoupled,
+                    high-quality and long-life e-commerce applications.
+                </p>
+            </div>
+        </div>
+        <!-- /.demo-row -->
+
+        <div class="demo-row typography-row row" id="features">
+            <h2 class="demo-panel-title">Features
+                <a title="Permalink to this headline" href="#features" class="headerlink">¶</a>
+            </h2>
+        </div>
+        <!-- /.demo-row -->
+        <div class="row demo-tiles">
+            <div class="col-md-2">
+                <div class="tile">
+                    <img src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/dda4a62.svg" alt="Multi-product" class="tile-image">
+                                        <h3 class="tile-title">Multi-product</h3>
+
+                    <p>
+                        Support infinite products each with its personal domain.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="tile">
+                    <img src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/f5b0e6f.svg" alt="Multi-storage" class="tile-image">
+                                        <h3 class="tile-title">Multi-storage</h3>
+
+                    <p>
+                        Doctrine2 ODM and ORM.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="tile">
+                    <img src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/5a5801a.svg" alt="No EAV" class="tile-image">
+                                        <h3 class="tile-title">No EAV</h3>
+
+                    <p>
+                        <del>Entity Attr. Value</del>
+                        <br> Object Oriented Programming
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="tile">
+                    <img src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/32cead8.svg" alt="RESTful API" class="tile-image">
+                    
+                    <h3 class="tile-title">RESTful API.</h3>
+
+                    <p>Usable via Http RESTful or via Symfony2 container.</p>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="tile">
+                    <img src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/4b7e4ec.svg" alt="No Session needed" class="tile-image">
+                    
+                    <h3 class="tile-title">No Session needed.</h3>
+
+                    <p>Cart is used as a resource.</p>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="tile">
+                    <img src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/42b7b8d.svg" alt="States and Transitions" class="tile-image">
+                    
+                    <p><b>States</b> and <b>Transitions</b> are not constants, are defined by you.</p>
+                </div>
+            </div>
+        </div>
+        <!-- /tiles -->
+
+        <div class="dialog dialog-inverse">
+            <div class="container">
+                <h2>Your domain is the boss here.</h2>
+            </div>
+        </div>
+
+        <div class="demo-row typography-row row" id="shopping-cart-on-the-shoulder-of-the-giants">
+            <h2 class="demo-panel-title">A PHP shopping cart standing on the shoulder of giants
+                <a title="Permalink to this headline" href="#shopping-cart-on-the-shoulder-of-the-giants" class="headerlink">¶</a>
+            </h2>
+
+            <div class="col-md-8">
+                <p>
+                    Leaphly is a PHP application for PHP &gt;=5.3. It relies on the simplicity and power
+                    of the Symfony2 framework and has been inspired also by Spree commerce,
+                    symfony-cmf and by the Symfony2 ecosystem.</p>
+                <p>
+                    This project does only one thing: handles the shopping cart, its states, its items.
+                </p>
+                <p>
+                    The heart of the e-commerce is your domain, which is made ​by the domains of each
+                    of your product that you will sell.
+                </p>
+            </div>
+            <div class="links_intro col-md-4">
+                <div><a class="btn btn-block btn-lg btn-primary" href="#demo">Play Demo  <span class="fui-play"></span></a></div>
+
+                <div><a class="btn btn-block btn-lg btn-info disabled" href="#fakelink">Learn more  <span class="fui-arrow-right"></span></a></div>
+
+                <div><a class="btn btn-block btn-lg btn-success disabled" href="#fakelink">Install now  <span class="fui-check"></span></a></div>
+            </div>
+        </div>
+        <div class="demo-row typography-row row">
+            <div class="col-md-12">
+                <p> A great e-commerce solution should be:</p>
+
+                <div class="feature-list checkbox checked">
+                    <span class="second-icon fui-checkbox-checked"></span>
+                    <em>Tailored</em><span class="asphalt"> should not be configured only with an ".ini" file,
+                        it needs to be developed, in order to fit the company needs.</span>
+                </div>
+
+                <div class="feature-list checkbox checked">
+                    <span class="second-icon fui-checkbox-checked"></span>
+                    <em>Deep</em><span class="asphalt"> should handle each product with its own logic.</span>
+                </div>
+
+                <div class="feature-list checkbox checked">
+                    <span class="second-icon fui-checkbox-checked"></span>
+                    <em>Decoupled</em><span class="asphalt"> should facilitate and suggest the SOA,
+                        with internal or external service.</span>
+                </div>
+
+                <div class="feature-list checkbox checked">
+                    <span class="second-icon fui-checkbox-checked"></span>
+                    <em>Flexible</em><span class="asphalt"> should leave the architectural choice
+                        to the development team.</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--container-->
+
+    <!-- rendering the demo -->
+    <div class="container">
+    <div class="demo-row typography-row row demo-tiles" id="demo">
+        <h3 class="demo-panel-title">Demo
+            <a title="Permalink to this headline" href="#demo" class="headerlink">¶</a>
+        </h3>
+        <div class="col-md-4">
+            <div class="login">
+                <div class="login-screen demo-row typography-row row">
+                    <div class="login-icon  col-md-4">
+                        <img src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/e883cf7.svg" alt="Great Shirt" class="tile-image">
+                                                <h4>Add
+                            <small>Shirt to cart</small>
+                            <p>20.99 €</p>
+                        </h4>
+                        <p>Red Tshirt</p>
+                    </div>
+                    <div class="login-form  item-form col-md-8">
+                        <form action="/api/v1/carts/123/items" method="post">
+                            <div><input id="product" name="product" class="form-control select" value="5256947e4e8d28d1058b4567" type="hidden"><div><label for="color" class="required">Color</label><select id="color" name="color" class="form-control select"><option selected="selected" value="blue">blue</option><option value="white">white</option><option value="yellow">yellow</option></select></div><div><label for="sku" class="required">Select</label><select id="sku" name="sku" class="form-control select"><option selected="selected" value="S">Small</option><option value="L">Large</option></select></div><div><label for="quantity" class="required">Quantity</label><select id="quantity" name="quantity" class="form-control select"><option selected="selected" value="1">1</option><option value="2">2</option><option value="3">3</option></select></div><div><button type="submit" id="save" name="save" class="btn glyphicon glyphicon-shopping-cart btn btn-inverse btn-lg btn-block"> Add</button></div></div></form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="login">
+                <div class="login-screen demo-row typography-row row">
+                    <div class="login-icon col-md-4">
+                        <img src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/5c693bc.svg" alt="Conference Ticket" class="tile-image">
+                                                <h4>Add
+                            <small>Conference Ticket to Cart</small>
+                            <p>12.99 €</p>
+                        </h4>
+                        <p>Ticket 1</p>
+
+                    </div>
+
+                    <div class="login-form item-form col-md-8">
+                        <form action="/api/v1/carts/123/items" method="post">
+                            <div><input id="product" name="product" class="form-control select" value="5256947f4e8d28d1058b4569" type="hidden"><input id="conferenceName" name="conferenceName" type="hidden"><div><label for="when" class="required">When</label><input id="when" name="when" required="required" class="form-control" value="2039-10-10" type="date"></div><div><label for="position" class="required">Position</label><select id="position" name="position" class="form-control select"><option selected="selected" value="A">Arena</option><option value="P">Proscenium</option></select></div><div><label for="adults" class="required">Adults</label><select id="adults" name="adults" class="form-control select"><option selected="selected" value="1">1</option><option value="2">2</option><option value="3">3</option></select></div><div><label for="children">Children</label><select id="children" name="children" class="form-control select"><option selected="selected" value=""></option><option value="1">1</option><option value="2">2</option></select></div><div><button type="submit" id="save" name="save" class="btn glyphicon glyphicon-shopping-cart btn btn-inverse btn-lg btn-block"> Add</button></div></div></form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="login">
+
+                <div style="opacity: 1;" class="login-screen login-screen-inverse row cart todo">
+    
+    <div class="cart-head">
+        <h5 class="centered">Shopping Cart</h5>
+        <p class="semi-hidden mini-text centered">Cart ID ⇨ 525a9de44e8d2844315e5333</p>
+    </div>
+    
+    <div class="cart-is-empty">
+        <img src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/paper-bag.svg">
+        <p>Empty</p>
+    </div>
+    
+    <ul>
+        
+    </ul>
+    
+    <a href="#" class="delete-action">Reset cart</a>
+
+    
+</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- container -->
+
+    <section class="feature">
+        <div class="container">
+            <div class="demo-row typography-row row" id="why-leaphly-cart">
+                <h3 class="demo-panel-title">Why another e-commerce?
+                    <a title="Permalink to this headline" href="#why-leaphly-cart" class="headerlink">¶</a>
+                </h3>
+                <div class="col-lg-12 ">
+                    <p>
+                        Actually we consider this project to be only a little part of an e-commerce architecture,
+                        we are providing tool to build a <b>custom shopping-cart</b>.
+                    </p>
+
+                    <p>
+                        There are clearly many e-commerce solutions available already,
+                        but they tend to provide monolithic packages,
+                        some are shipped by many coupled bundles, others handle multi-products diversity with EAV.
+                        Many carry a certain amount of legacy baggage which make them less than
+                        <b>ideal for developing highly custom applications</b>,
+                        in contrast to what is possible with
+                        <a href="http://www.symfony.com/" target="_blank">Symfony2</a>.
+                    </p>
+
+                    <h4>Developer Developer Developer Decouple Decouple Decouple</h4>
+                    <img src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/01ec7eb.jpg" alt="SOA" class="right">
+                    
+                    <p>
+                        Selecting the right e-commerce application
+                        for the long term can be a difficult exercise, It’s not
+                        easy to base a decision on both current requirements and a vague, undetermined set of future
+                        needs that have not yet even hit the planning
+                        stages.
+                    </p>
+
+                    <p>
+                        The same principles for the object oriented design, could also be extended to services,
+                        using Service Oriented Architecture, <b>build application out of smaller ones</b>.
+                    </p>
+
+                    <p>
+                        Because of their independent, modular nature, services can be used
+                        like building blocks which can have different architecture and can be changed/updated independently.
+
+                        Users could be handled by a CRM or by a simple UserBundle, the products showcase by a CMF
+                        and the checkout process by another application (maybe a front-end application),
+                        the report and the order stats by the Business Intelligence or just a simple report application,
+                        the carts by <b>Leaphly</b> as bundle or as Cart Service via Restful interface.
+                    </p>
+
+                </div>
+                <div class="col-lg-12 ">
+                    <h4>Strategy Pattern</h4>
+                    <p>
+                        The e-commerce usually requires a product that conforms to different types of interfaces to make
+                        possible its manipulation by different processes such as the selection of the options or the
+                        order creation process.
+                    </p>
+                    <p>
+                        This leads us creating a "service layer" that will contain the business logic. A practice
+                        which many of us are accustomed to is to create services designed to manipulate entities:
+                        How to tie this logical layer to its product? How to easily go back to the right service
+                        starting from the object that needs it?
+                    </p>
+                    <p>
+                        Leaphly has been designed with this in mind, to have more products therefore different types
+                        does not preclude the freedom to use a pattern of clean development, in fact you can develop a
+                        service layer for each product, which will contain a specific business logic for it. As long as
+                        you respect the right interface, it will be used by the shopping cart.
+                    </p>
+
+
+                    <p><b>The strategy pattern</b> defines a family of algorithms, encapsulates each one,
+                        and makes them interchangeable. Strategy lets the algorithm
+                        vary independently from clients that use it.</p>
+                    <p>
+                        From Wikipedia:
+                    </p>
+                    <blockquote>
+                        In computer programming, the strategy pattern (also known as the policy pattern)
+                        is a software design pattern, whereby an algorithm's behaviour
+                        can be selected at runtime. Formally speaking, the strategy pattern defines
+                        a family of algorithms, encapsulates each one, and makes them interchangeable.
+                        Strategy lets the algorithm vary independently from clients that use it.
+                        Strategy is one of the patterns included in the influential book
+                        "Design Patterns" by Gamma et al. that popularized the concept
+                        of using patterns in software design.
+                    </blockquote>
+                </div>
+                <div class="col-lg-12 ">
+                    <h4 class="">Finite state machine and transitions</h4>
+                    <p>
+                        The Cart lifecycle is very important for an e-commerce project.
+                    </p>
+                    <p>
+                        Some good projects tend to hardcode states in constants:
+                        <a href="https://github.com/Sylius/SyliusSalesBundle/blob/master/Model/OrderStates.php#L19" target="_blank">Sylius/OrderStates</a> and
+                        <a href="https://github.com/vespolina/core/blob/master/lib/Vespolina/Entity/Order/Cart.php#L22" target="_blank">Vespolina/CartSates</a><br>
+                    </p>
+                    <p>
+                        The advantage is the simplicity, and no learning curve, but the problem
+                        lies in the extensibility.
+                    </p>
+                    <p>
+                        A good approach is use a Finite State Machine. The FSM allows to configure
+                        the states and transitions via a configuration file, it allows to have
+                        a single point where stores the logic that defines the permissions.
+                    </p>
+                    <p>
+                        For example, before the payment you want to understand if the shopping-cart
+                        could move to the state of order,<br> then you want to understand
+                        if the shopping-cart is in the correct state to be transformed in a order.
+                    </p>
+                    <p>
+                        With the hard-coded states you should do something like this:
+                    </p>
+<pre><code class="perl"><span class="keyword">if</span> (<span class="variable">$cart</span>-&gt;getState() == States::STATE_OPEN &amp;&amp;  <span class="variable">$cart</span>-&gt;getState() != States::STATE_LOCKED &amp;&amp; ...) {
+    <span class="variable">$cart</span>-&gt;setState(STATE::STATE_LOCK);
+}
+</code></pre>
+                    <p>
+                        Using the Transition manager you just apply a given transition to a cart,
+                        and the manager modifies the state of the given cart (you have to create a configuration file).
+                    </p>
+                    <div class="bs-example bs-example-tabs">
+                        <ul id="myTab" class="nav nav-tabs">
+                            <li class="active"><a href="#code-transition-php" data-toggle="tab">PHP using service</a></li>
+                            <li class=""><a href="#code-transition-rest" data-toggle="tab">PHP consuming RESTful interface</a></li>
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                            <div class="tab-pane fade active in" id="code-transition-php">
+                                <pre><code class="perl"><span class="variable">$this</span>-&gt;container-&gt;get(<span class="string">'leaphly_cart.cart.transition'</span>)-&gt;apply(<span class="variable">$cart</span>, <span class="string">'order_start'</span>));</code></pre>
+                            </div>
+                            <div class="tab-pane fade" id="code-transition-rest">
+<pre><code class="perl"><span class="variable">$client</span> = new Guzzle\Http\Client();
+<span class="variable">$request</span> = <span class="variable">$client</span>-&gt;post(
+    <span class="keyword">sprintf</span>(<span class="string">'http://leaphly.org/api/v1/carts/%s/transitions/order_start.json'</span>,  <span class="variable">$cartId</span>)
+);
+<span class="variable">$request</span>-&gt;setAuth(<span class="string">'consumer'</span>, <span class="string">'consumer'</span>);
+<span class="variable">$response</span> = <span class="variable">$request</span>-&gt;send();</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        They seems pretty similar
+                        but you'll quickly spread the same logic in the code,
+                        even with few transitions.
+                    </p>
+                    <p>
+                        You could use Transition as service as the example above or via RESTful.
+                    </p>
+                    <p>
+                        <b>Not Invented Here:</b> leaphly project uses
+                        <a href="https://github.com/yohang/Finite">yohang/Finite</a> as FSM.
+                    </p>
+                </div>
+
+                <div class="col-lg-12 ">
+                    <h5>Create the Cart and fetch the Cart</h5>
+
+                    <div class="bs-example bs-example-tabs">
+    <ul id="myTab" class="nav nav-tabs">
+        <li class="active"><a href="#snippet-create-cart-php-service" data-toggle="tab">PHP using service container</a></li>
+        <li class=""><a href="#snippet-create-cart-php-rest" data-toggle="tab">PHP consuming RESTful API</a></li>
+        <li class=""><a href="#snippet-create-cart-ajax" data-toggle="tab">AJAX</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade active in" id="snippet-create-cart-php-service">
+<pre><code class="php"><span class="variable">$cart</span> = <span class="variable">$this</span>-&gt;container-&gt;get(<span class="string">'leaphly_cart.cart.service'</span>)-&gt;post();
+
+<span class="comment">// get the cart given the $cartId</span>
+<span class="variable">$cart</span> = <span class="variable">$this</span>-&gt;container-&gt;get(<span class="string">'leaphly_cart.cart.service'</span>)-&gt;get(<span class="variable">$cartId</span>);</code></pre>
+        </div>
+        <div class="tab-pane fade" id="snippet-create-cart-php-rest">
+<pre><code class="php"><span class="keyword">use</span> Guzzle\Http\Client;
+<span class="variable">$client</span> = <span class="keyword">new</span> Client();
+<span class="variable">$cart</span> = <span class="variable">$client</span>-&gt;post(<span class="string">"http://leaphly.org/api/v1/carts.json"</span>)-&gt;send();
+
+<span class="comment">// get the cart given the $cartId</span>
+<span class="variable">$cart</span> = <span class="variable">$client</span>-&gt;get(<span class="string">"http://leaphly.org/api/v1/carts/$cartId.json"</span>)-&gt;send();</code></pre>
+        </div>
+        <div class="tab-pane fade" id="snippet-create-cart-ajax">
+<pre><code class="javascript">$.post(<span class="string">"http://leaphly.org/api/v1/carts.json"</span>, data, <span class="keyword">function</span>(cart){
+    <span class="comment">//This is your new cart.</span>
+    callback(cart);
+});
+
+<span class="comment">// get the cart given the $cartId</span>
+$.ajax({
+    url: <span class="string">"http://demoapplication.com/api/v1/carts/"</span> + cart_id + <span class="string">".json"</span>,
+    type: <span class="string">"GET"</span>,
+    success: <span class="keyword">function</span>(cart){
+        <span class="comment">//play with the cart object.</span>
+        callback(cart);
+    },
+    error: <span class="keyword">function</span>(data){
+        <span class="comment">//handle the errors.</span>
+        oops(data);
+    }
+});</code></pre>
+        </div>
+    </div>
+</div>                </div>
+
+                <div class="col-lg-12 ">
+                    <h5>Add different products and options to the cart</h5>
+                    <p>
+                        Add to cart products with different options, showing the power of multi-products,
+                        usually each product has its own options.
+                    </p>
+                    <div class="bs-example bs-example-tabs">
+<ul id="myTab" class="nav nav-tabs">
+    <li class="active"><a href="#snippet-add-product-php-service" data-toggle="tab">PHP using service container</a></li>
+    <li class=""><a href="#snippet-add-product-php-rest" data-toggle="tab">PHP consuming RESTful API</a></li>
+    <li class=""><a href="#snippet-add-product-ajax" data-toggle="tab">AJAX</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+    <p>The domain of the tshirt is totally different the domain of a ticket.</p>
+    <div class="tab-pane fade active in" id="snippet-add-product-php-service">
+<pre><code class="php"><span class="keyword">use</span> Guzzle\Http\Client;
+<span class="variable">$client</span> = <span class="keyword">new</span> Client();
+<span class="comment">// Populates the options for the domain of the tshirt</span>
+<span class="variable">$tshirtId</span> = <span class="number">3</span>; <span class="comment">// this is the product id</span>
+<span class="variable">$tshirtOption</span> = <span class="keyword">new</span> \Your\YourTshirt\Entity\TshirtOption();
+<span class="variable">$tshirtOption</span>-&gt;setQuantity(<span class="number">4</span>);
+<span class="variable">$tshirtType</span> = <span class="keyword">new</span> \Your\YourTshirt\Entity\TshirtType();
+<span class="variable">$tshirtType</span>-&gt;setColor(<span class="string">'red'</span>);
+<span class="comment">// Sends the post to the cart in order to create an Item</span>
+<span class="variable">$this</span>-&gt;container-&gt;get(<span class="string">'leaphly_cart.item.service'</span>)-&gt;post(<span class="variable">$cart</span>, <span class="keyword">array</span>(<span class="variable">$tshirtId</span>, <span class="variable">$tshirtOption</span>, <span class="variable">$tshirtType</span>));
+
+<span class="comment">// Populates the domain of the concert, it doesn't have quantity but 'customer'</span>
+<span class="variable">$concertId</span> = <span class="number">10</span>; <span class="comment">// this is the product id</span>
+<span class="variable">$customerType</span> = <span class="keyword">new</span> \Your\YourConcert\Entity\CustomerType();
+<span class="variable">$customerType</span>-&gt;setAdult(<span class="number">2</span>);
+<span class="variable">$customerType</span>-&gt;setChild(<span class="number">1</span>);
+<span class="variable">$note</span> = <span class="string">'Customer usually screams during the concert'</span>;
+<span class="variable">$customerType</span>-&gt;setSomethigReallyCloseToTheConcertDomain(<span class="string">'yes'</span>)
+<span class="comment">// Sends the post to the cart in order to create an Item</span>
+<span class="variable">$this</span>-&gt;container-&gt;get(<span class="string">'leaphly_cart.item.service'</span>)-&gt;post(<span class="variable">$cart</span>, <span class="keyword">array</span>(<span class="variable">$concertId</span>, <span class="variable">$customerType</span>, <span class="variable">$note</span>));
+<span class="keyword">echo</span> <span class="variable">$response</span>-&gt;getStatus();
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade" id="snippet-add-product-php-rest">
+<pre><code class="php"><span class="keyword">use</span> Guzzle\Http\Client;
+<span class="variable">$client</span> = <span class="keyword">new</span> Client();
+<span class="comment">// Populates the options for the domain of the tshirt</span>
+<span class="variable">$tshirtId</span> = <span class="number">3</span>; <span class="comment">// this is the product id</span>
+<span class="variable">$tshirtOption</span> = <span class="keyword">new</span> \Your\YourTshirt\Entity\TshirtOption();
+<span class="variable">$tshirtOption</span>-&gt;setQuantity(<span class="number">4</span>);
+<span class="variable">$tshirtType</span> = <span class="keyword">new</span> \Your\YourTshirt\Entity\TshirtType();
+<span class="variable">$tshirtType</span>-&gt;setColor(<span class="string">'red'</span>);
+<span class="comment">// Sends the post to the cart in order to create an Item</span>
+<span class="variable">$response</span> = <span class="variable">$client</span>-&gt;post(<span class="string">"carts/$cartId/items.json"</span>, <span class="keyword">array</span>(<span class="variable">$tshirtId</span>, <span class="variable">$tshirtOption</span>, <span class="variable">$tshirtType</span>))-&gt;send();
+<span class="keyword">echo</span> <span class="variable">$response</span>-&gt;getStatus();
+
+<span class="comment">// Populates the domain of the concert, it doesn't have quantity but 'customer'</span>
+<span class="variable">$concertId</span> = <span class="number">10</span>; <span class="comment">// this is the product id</span>
+<span class="variable">$customerType</span> = <span class="keyword">new</span> \Your\YourConcert\Entity\CustomerType();
+<span class="variable">$customerType</span>-&gt;setAdult(<span class="number">2</span>);
+<span class="variable">$customerType</span>-&gt;setChild(<span class="number">1</span>);
+<span class="variable">$note</span> = <span class="string">'Customer usually screams during the concert'</span>;
+<span class="variable">$customerType</span>-&gt;setSomethigReallyCloseToTheConcertDomain(<span class="string">'yes'</span>)
+<span class="comment">// Sends the post to the cart in order to create an Item</span>
+<span class="variable">$response</span> = <span class="variable">$client</span>-&gt;post(<span class="string">"carts/$cartId/items.json"</span>, <span class="keyword">array</span>(<span class="variable">$concertId</span>, <span class="variable">$customerType</span>, <span class="variable">$note</span>))-&gt;send();
+<span class="keyword">echo</span> <span class="variable">$response</span>-&gt;getStatus();
+</code></pre>
+    </div>
+    <div class="tab-pane fade" id="snippet-add-product-php-service">
+<pre><code class="php">todo
+    </code></pre>
+    </div>
+    <div class="tab-pane fade" id="snippet-add-product-ajax">
+<pre><code class="javascript">$(<span class="string">'.item-form form'</span>).each(<span class="keyword">function</span>(id, form){
+    $(form).submit(<span class="keyword">function</span>(evt){
+    <span class="keyword">var</span> route = Routing.generate(<span class="string">'api_1_post_cart_item'</span>,{cart_id: cart_manager.get_id(), _format: <span class="string">'json'</span>});
+    <span class="keyword">var</span> data = $(<span class="keyword">this</span>).serialize();
+    $.ajax({
+        url: route,
+        data: data,
+        type: <span class="string">"POST"</span>,
+        success: <span class="keyword">function</span>(response){
+            cart_manager.reDraw(response);
+        },
+        error: <span class="keyword">function</span>(content){
+            cart_manager.handleError(content);
+        }
+    });
+    evt.preventDefault();
+    <span class="keyword">return</span> <span class="literal">false</span>;
+    });
+});
+</code></pre>
+    </div>
+</div>
+</div>                </div>
+            </div>
+        </div>
+    </section>
+
+<div class="container" id="give-a-feedback">
+    <h3 class="demo-panel-title">What do you think about this project?
+        <a title="Permalink to this headline" href="#give-a-feedback" class="headerlink">¶</a>
+    </h3>
+    <p>Please give us a feedback</p>
+<div id="disqus_thread"><iframe verticalscrolling="no" horizontalscrolling="no" src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/a.html" style="width: 100% ! important; border: medium none ! important; overflow: hidden ! important; height: 601px ! important;" role="complementary" allowtransparency="true" data-disqus-uid="2" id="dsq2" scrolling="no" width="100%" frameborder="0"></iframe><iframe style="width: 1140px ! important; border: medium none ! important; overflow: hidden ! important; top: 0px ! important; position: fixed ! important; height: 29px ! important; display: none ! important;" role="alert" allowtransparency="true" data-disqus-uid="-indicator-north" id="dsq-indicator-north" scrolling="no" frameborder="0"></iframe><iframe style="width: 1140px ! important; border: medium none ! important; overflow: hidden ! important; bottom: 0px ! important; position: fixed ! important; height: 29px ! important; display: none ! important;" role="alert" allowtransparency="true" data-disqus-uid="-indicator-south" id="dsq-indicator-south" scrolling="no" frameborder="0"></iframe></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'leaphly'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</div><!-- /container -->
+
+<footer>
+    <div class="container">
+        <div class="demo-row typography-row row">
+            <div class="col-md-7">
+                <h3 class="footer-title"></h3>
+
+                <div class="bs-social">
+                    <ul class="bs-social-buttons">
+                        <li>
+                            <iframe title="Star on GitHub" src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/github-btn.html" class="github-btn" width="100" height="20"></iframe>
+                        </li>
+                        <li>
+                            <iframe title="Fork on GitHub" src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/github-btn_002.html" class="github-btn" width="102" height="20"></iframe>
+                        </li>
+                        <li class="follow-btn">
+                            <iframe style="width: 112px; height: 20px;" data-twttr-rendered="true" title="Twitter Follow Button" class="twitter-follow-button twitter-follow-button" src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/follow_button_002.html" allowtransparency="true" id="twitter-widget-2" scrolling="no" frameborder="0"></iframe>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                         </li>
+                        <li class="tweet-btn">
+                            <iframe style="width: 106px; height: 20px;" data-twttr-rendered="true" title="Twitter Tweet Button" class="twitter-share-button twitter-tweet-button twitter-count-horizontal" src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/tweet_button.html" allowtransparency="true" id="twitter-widget-0" scrolling="no" frameborder="0"></iframe>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- /col-md-7 -->
+            <div class="col-md-5">
+                <div id="footer-banner-green" class="footer-banner">
+                    <h3 class="footer-title">Leaphly Project</h3>
+                    <ul>
+                        <li><a href="https://github.com/leaphly/CartBundle" target="_blank">Github</a></li>
+                        <li><a href="https://github.com/leaphly/CartBundle/graphs/contributors" target="_blank">Contributors</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script id="cart-template" type="text/x-handlebars-template">
+    
+    <div class="cart-head">
+        <h5 class="centered">Shopping Cart</h5>
+        <p class="semi-hidden mini-text centered">Cart ID ⇨ {{ cart.id }}</p>
+    </div>
+    {{#if cart.is_empty}}
+    <div class="cart-is-empty">
+        <img src="/bundles/leaphlycontent/images/icons/paper-bag.svg">
+        <p>Empty</p>
+    </div>
+    {{/if}}
+    <ul>
+        {{#each cart.items}}
+        {{> item }}
+        {{/each}}
+    </ul>
+    {{#if cart.actions_enabled }}
+    <div class="total">
+        {{#if cart.finalPrice }}
+        <span class="price">{{ cart.finalPrice }}<span class="currency">{{ cart.currency }}</span></span>
+        {{/if  }}
+        <span class="price strike">{{ cart.price }} <span class="currency">{{ cart.currency }} </span></span>
+    </div>
+    <div class="clearfix"></div>
+    <div class="actions">
+        <a href="/purchase-process/authenticate/{{ cart.id }}" class="btn btn btn-inverse btn-lg btn-block">Checkout (using container API)</a>
+        <a href="/purchase-process/rest/authenticate/{{ cart.id }}" class="btn btn btn-info btn-lg btn-block">Checkout (consuming RESTful API)</a>
+    </div>
+    {{/if }}
+    <a href="#" class="delete-action" class="btn btn-danger btn-xs ">Reset cart</a>
+
+    
+</script>
+
+<script id="item-template" type="text/x-handlebars-template">
+    
+    <li class="item" data-id="{{ id }}">
+        <div>
+            <h5>{{ name }}</h5>
+            {{! If There is a final price show it}}
+            {{#each this}}
+                {{{ print @key this }}}
+            {{/each}}
+        </div>
+        <div id="delete{{ id }}" class="delete glyphicon glyphicon-trash pointer"></div>
+    </li>
+    
+</script>        <script src="Leaphly%20shopping%20cart%20for%20php%20Symfony2_files/9624494.js"></script>
+        <script>
+        //syntax highlight
+        $(document).ready(function() {
+            $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+        });
+    </script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-44701334-1', 'leaphly.org');
+        ga('send', 'pageview');
+    </script>
+
+
+
+</body></html>
