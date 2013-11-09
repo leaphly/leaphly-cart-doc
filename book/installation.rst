@@ -29,7 +29,10 @@ Add LeaphlyCartBundle in your composer.json:
 
     {
         "require": {
-            "leaphly/cart-bundle": "~1.0@dev"
+            "leaphly/cart-bundle": "@dev",
+            "pugx/godfather": "@dev",
+            "yohang/finite": "@dev",
+            "jms/serializer-bundle": "@dev"
         }
     }
 
