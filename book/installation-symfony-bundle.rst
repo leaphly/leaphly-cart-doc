@@ -1,6 +1,3 @@
-.. .. index::
-    single: Installation; Getting Started
-
 Installing the Leaphly Cart in your symfony application
 ========================================================
 
@@ -14,39 +11,21 @@ Install LeaphlyCartBundle
 
 From zero to cart in five moves!
 
-1. Download LeaphlyCartBundle using composer
+1. Get LeaphlyCartBundle using composer
 2. Enable the Bundle
 3. Create your ``Cart`` and ``Item`` classes
 4. Configure the LeaphlyCartBundle
 5. Update your database schema
 
-Step 1: Download Leaphly Cart Bundle using composer
+Step 1: Get Leaphly Cart Bundle using composer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Add LeaphlyCartBundle in your composer.json:
 
-.. code-block:: js
-
-    {
-        "require": {
-            "leaphly/cart-bundle": "@dev",
-            "pugx/godfather": "@dev",
-            "yohang/finite": "@dev",
-            "jms/serializer-bundle": "@dev"
-        }
-    }
-
-Now tell composer to download the bundle by running the command:
-
 .. code-block:: bash
 
-    $ php composer.phar update leaphly/cart-bundle
+    $ php composer.phar require leaphly/cart-bundle "0.2.x-dev"
 
-.. More simply, run
-..
-  .. code-block:: bash
-..
-    $ php composer.phar require Leaphly/cart-bundle
 
 Step 2: Enable the bundle
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -300,4 +279,7 @@ Next Steps
 Now that you have completed the basic installation and configuration of
 the LeaphlyCartBundle, you are ready to learn about more advanced
 features and usages of the bundle.
+
+
+
 
