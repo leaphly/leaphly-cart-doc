@@ -41,8 +41,8 @@ Enable the bundle in the kernel:
     {
         $bundles = array(
             // ...
-            new Finite\Bundle\FiniteBundle\FiniteFiniteBundle(),
             new Leaphly\CartBundle\LeaphlyCartBundle(),
+            new Finite\Bundle\FiniteBundle\FiniteFiniteBundle(), //needs to come after leaphly
             // ...
         );
     }
