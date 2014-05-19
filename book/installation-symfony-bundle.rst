@@ -42,6 +42,7 @@ Enable the bundle in the kernel:
         $bundles = array(
             // ...
             new Leaphly\CartBundle\LeaphlyCartBundle(),
+            new Finite\Bundle\FiniteBundle\FiniteFiniteBundle(), //needs to come after leaphly
             // ...
         );
     }
@@ -189,9 +190,10 @@ which type of datastore you are using.
     leaphly_cart:
         db_driver: orm # or odm, required
         cart_class: Acme\CartBundle\Entity\Cart #required
+        product_family_provider: acme.cart_product_family_provider #required
         roles:
             full:
-                form: leaphly_cart.cart.admin.form # required
+                form: leaphly_cart.cart.form.type # required
 
 As you can see, you will need the following information:
 
@@ -202,6 +204,20 @@ As you can see, you will need the following information:
    Example: the full role will map all Cart fields but the limited role map all field
    except the price and state properties.
    Via Service container you could use the handler via  `leaphly_cart.cart.full.handler`.
+
+**Creating the product family provider service**
+
+.. code-block:: yaml
+
+    # services.yml
+    parameters:
+        acme.cart_product_family_provider.class: Leaphly\Cart\Provider\SimpleProductFamilyProvider
+    
+    services:
+        acme.cart_product_family_provider:
+            class: %acme.cart_product_family_provider.class%
+            arguments: [@doctrine.orm.entity_manager]
+
 
 **Note:**
 
